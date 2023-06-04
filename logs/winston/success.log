@@ -2,3 +2,43 @@
 {"level":"info","message":"Application listening at http://localhost:5000"}
 {"level":"info","message":"database is connected successfully"}
 {"level":"info","message":"Application listening at http://localhost:5000"}
+2023-06-04T06:14:46.368Z [right meow!] info: database is connected successfully
+2023-06-04T06:14:46.378Z [right meow!] info: Application listening at http://localhost:5000
+2023-06-04T06:27:34.470Z [right meow!] info: database is connected successfully
+2023-06-04T06:27:34.480Z [right meow!] info: Application listening at http://localhost:5000
+2023-06-04T06:37:09.052Z [right meow!] info: database is connected successfully
+2023-06-04T06:37:09.065Z [right meow!] info: Application listening at http://localhost:5000
+2023-06-04T06:37:14.255Z [right meow!] info: database is connected successfully
+2023-06-04T06:37:14.262Z [right meow!] info: Application listening at http://localhost:5000
+2023-06-04T06:37:38.539Z [right meow!] info: database is connected successfully
+2023-06-04T06:37:38.553Z [right meow!] info: Application listening at http://localhost:5000
+2023-06-04T06:37:46.116Z [right meow!] info: database is connected successfully
+2023-06-04T06:37:46.125Z [right meow!] info: Application listening at http://localhost:5000
+2023-06-04T06:38:12.195Z [right meow!] info: database is connected successfully
+2023-06-04T06:38:12.203Z [right meow!] info: Application listening at http://localhost:5000
+[object Object] [right meow!] info: database is connected successfully
+[object Object] [right meow!] info: Application listening at http://localhost:5000
+function toDateString() { [native code] } [right meow!] info: database is connected successfully
+function toDateString() { [native code] } [right meow!] info: Application listening at http://localhost:5000
+Sun Jun 04 2023 [right meow!] info: database is connected successfully
+Sun Jun 04 2023 [right meow!] info: Application listening at http://localhost:5000
+Sun Jun 04 2023 12 [right meow!] info: database is connected successfully
+Sun Jun 04 2023 12 [right meow!] info: Application listening at http://localhost:5000
+Sun Jun 04 2023 12:40:15 [right meow!] info: database is connected successfully
+Sun Jun 04 2023 12:40:15 [right meow!] info: Application listening at http://localhost:5000
+Sun Jun 04 2023 12:42:51 [right meow!] info: database is connected successfully
+Sun Jun 04 2023 12:42:51 [right meow!] info: Application listening at http://localhost:5000
+Sun Jun 04 2023 12:42:58 [right meow!] info: database is connected successfully
+Sun Jun 04 2023 12:42:58 [right meow!] info: Application listening at http://localhost:5000
+{
+  message: 'database is connected successfully',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2023-06-04T06:43:24.097Z'
+}
+{
+  message: 'Application listening at http://localhost:5000',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2023-06-04T06:43:24.109Z'
+}
