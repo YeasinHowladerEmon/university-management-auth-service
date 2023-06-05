@@ -1,0 +1,24 @@
+{
+  message: 'database is connected successfully',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2023-06-05T01:24:09.141Z'
+}
+{
+  message: 'Application listening at http://localhost:5000',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2023-06-05T01:24:09.160Z'
+}
+Mon Jun 05 2023 7:25:3 [right meow!] info: database is connected successfully
+Mon Jun 05 2023 7:25:3 [right meow!] info: Application listening at http://localhost:5000
+Mon Jun 05 2023 7:25:24 [right meow!] info: database is connected successfully
+Mon Jun 05 2023 7:25:24 [right meow!] info: Application listening at http://localhost:5000
+Mon Jun 05 2023 7:26:30 [right meow!] info: database is connected successfully
+Mon Jun 05 2023 7:26:30 [right meow!] info: Application listening at http://localhost:5000
+Mon Jun 05 2023 7:28:46 [right meow!] info: database is connected successfully
+Mon Jun 05 2023 7:28:46 [right meow!] info: Application listening at http://localhost:5000
+Mon Jun 05 2023 7:29:55 [right meow!] info: database is connected successfully
+Mon Jun 05 2023 7:29:55 [right meow!] info: Application listening at http://localhost:5000
+Mon Jun 05 2023 7:30:3 [PH meow!] info: database is connected successfully
+Mon Jun 05 2023 7:30:3 [PH meow!] info: Application listening at http://localhost:5000
