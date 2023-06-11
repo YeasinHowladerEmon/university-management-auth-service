@@ -1,27 +1,26 @@
-import express, { Application } from 'express'
-import cors from 'cors'
-import userRouter from './app/modules/users/users.route'
-import globalErrorHandler from './app/middlewares/globalErrorsHandler'
+import express, { Application } from 'express';
+import cors from 'cors';
+import globalErrorHandler from './app/middlewares/globalErrorsHandler';
+import routes from './app/modules/routes';
 
-const app: Application = express()
+const app: Application = express();
 
-app.use(cors())
+app.use(cors());
 
 // parse
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Application
 
-app.use('/api/v1/users/', userRouter)
+app.use('/api/v1/', routes);
 
 // testing
-// app.get('/', (req: Request, res: Response, next:NextFunction) => {
-//   // throw new ApiError(400, 'Error is Error')
-// next('error is error') // Error
+// app.get('/', async (req: Request, res: Response, next:NextFunction) => {
+//   console.log(x)
+// // next('error is error') // Error
 // })
 
 //global error handler
-app.use(globalErrorHandler)
-
-export default app
+app.use(globalErrorHandler);
+export default app;
