@@ -1,0 +1,2 @@
+Wed Jun 14 2023 11:5:56 [PH meow!] error: $regex has to be a string
+Wed Jun 14 2023 11:15:16 [PH meow!] error: Cast to number failed for value "i" (type string) at path "year" for model "AcademicSemester"
