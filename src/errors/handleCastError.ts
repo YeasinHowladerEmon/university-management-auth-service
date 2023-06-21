@@ -2,7 +2,6 @@ import { IGenericErrorMessage } from './../interfaces/error';
 import mongoose from 'mongoose';
 
 const handleCastError = (error: mongoose.Error.CastError) => {
-  console.log('hi', error);
   const errors: IGenericErrorMessage[] = [
     {
       path: error.path,

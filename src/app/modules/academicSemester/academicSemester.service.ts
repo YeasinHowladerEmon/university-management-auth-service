@@ -143,6 +143,3 @@ export const AcademicSemesterService = {
   updateSemester,
   deleteSemester,
 };
-//showing phero to why don't work error
-//1. cast error doesn't show terminal
-//2. Api Error  doesn't show terminal
