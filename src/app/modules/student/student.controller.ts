@@ -8,17 +8,6 @@ import { paginationFields } from '../../../constants/pagination';
 import pick from '../../../shared/pick';
 import { studentService } from './student.service';
 
-const createStudent = catchAsync(async (req: Request, res: Response) => {
-  const { ...academicSemesterData } = req.body;
-  const result = await studentService.createStudent(academicSemesterData);
-  sendResponse<IStudent>(res, {
-    statusCode: httpStatus.OK,
-    success: true,
-    message: 'Academic Semester created successfully',
-    data: result,
-  });
-});
-
 const getAllStudent = catchAsync(async (req: Request, res: Response) => {
   const filters = pick(req.query, studentFilterableFields);
   const paginationOptions = pick(req.query, paginationFields);
@@ -68,7 +57,6 @@ const deleteStudent = catchAsync(async (req: Request, res: Response) => {
 });
 
 export const StudentController = {
-  createStudent,
   getAllStudent,
   getSingleStudent,
   updateStudent,
