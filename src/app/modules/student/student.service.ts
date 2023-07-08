@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IPaginationOptions } from '../../../interfaces/pagination';
-import { IGenericResponse } from '../../../interfaces/common';
-import { paginationHelpers } from '../../../helpers/paginationHelper';
+import httpStatus from 'http-status';
 import mongoose, { SortOrder } from 'mongoose';
+import ApiError from '../../../errors/ApiError';
+import { paginationHelpers } from '../../../helpers/paginationHelper';
+import { IGenericResponse } from '../../../interfaces/common';
+import { IPaginationOptions } from '../../../interfaces/pagination';
+import { User } from '../users/user.model';
+import { studentSearchableFields } from './student.constant';
 import { IStudent, IStudentFilters } from './student.interface';
 import { Student } from './student.model';
-import { studentSearchableFields } from './student.constant';
-import ApiError from '../../../errors/ApiError';
-import httpStatus from 'http-status';
-import { User } from '../users/user.model';
 
 const createStudent = async (payload: IStudent): Promise<IStudent> => {
   const result = await Student.create(payload);
@@ -134,7 +134,7 @@ const deleteStudent = async (id: string): Promise<IStudent | null> => {
   try {
     session.startTransaction();
     //delete student first
-    const student = await Student.findByIdAndDelete({ id }, { session });
+    const student = await Student.findOneAndDelete({ id }, { session });
     if (!student) {
       throw new ApiError(404, 'Failed to delete student');
     }

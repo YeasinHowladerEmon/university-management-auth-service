@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
 import bcrypt from 'bcrypt';
 import { Schema, model } from 'mongoose';
-import { IUser, IUserMethods, UserModel } from './user.interface';
+import { IUser, UserModel } from './user.interface';
 import config from '../../../config';
 
-const userSchema = new Schema<IUser, Record<string, never>, IUserMethods>(
+const userSchema = new Schema<IUser, UserModel>(
   {
     id: {
       type: String,
@@ -23,6 +23,9 @@ const userSchema = new Schema<IUser, Record<string, never>, IUserMethods>(
     needsPasswordChange: {
       type: Boolean,
       default: true,
+    },
+    passwordChangeAt: {
+      type: Date,
     },
     student: {
       type: Schema.Types.ObjectId,
@@ -44,16 +47,38 @@ const userSchema = new Schema<IUser, Record<string, never>, IUserMethods>(
     },
   }
 );
-userSchema.methods.isUserExist = async function (
+//instance methods
+// userSchema.methods.isUserExist = async function (
+//   id: string
+// ): Promise<Partial<IUser> | null> {
+//   return await User.findOne(
+//     { id },
+//     { id: 1, password: 1, needsPasswordChange: 1 }
+//   );
+// };
+
+// userSchema.methods.isPasswordMatched = async function (
+//   givenPassword: string,
+//   savedPassword: string
+// ): Promise<boolean> {
+//   return await bcrypt.compare(givenPassword, savedPassword);
+// };
+
+//static
+userSchema.statics.isUserExist = async function (
   id: string
-): Promise<Partial<IUser> | null> {
+): Promise<Pick<
+  IUser,
+  'id' | 'role' | 'password' | 'needsPasswordChange'
+> | null> {
   return await User.findOne(
     { id },
-    { id: 1, password: 1, needsPasswordChange: 1 }
+    { id: 1, password: 1, role: 1, needsPasswordChange: 1 }
   );
 };
 
-userSchema.methods.isPasswordMatched = async function (
+//matched password
+userSchema.statics.isPasswordMatched = async function (
   givenPassword: string,
   savedPassword: string
 ): Promise<boolean> {
@@ -64,10 +89,15 @@ userSchema.methods.isPasswordMatched = async function (
 
 userSchema.pre('save', async function (next) {
   const user = this;
+  console.log('password', this.password);
   user.password = await bcrypt.hash(
     user.password,
     Number(config.bcrypt_salt_rounds)
   );
+
+  if (!user.needsPasswordChange) {
+    user.passwordChangeAt = new Date();
+  }
 
   next();
 });
